@@ -24,7 +24,7 @@ git checkout -b USERNAME/lab-1-personalize
 **Goal:** Tune Copilot for *you* before you tune it for the team.
 
 **1. Personal instructions** (apply to *all* your Copilot chats, everywhere):
-- Go to [https://github.com/copilot](https://github.com/copilot)
+- Go to [https://github.com/copilot](https://triwest-healthcare-alliance.ghe.com/copilot)
 - Click your avatar (bottom-left) → **Personal instructions**
 - Add something that reflects how you like answers, for example:
   ```markdown
