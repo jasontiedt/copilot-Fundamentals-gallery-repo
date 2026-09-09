@@ -1,0 +1,20 @@
+# Build & cache artifacts from the Fundamentals Labs starter modules.
+# These are generated when learners run the Python/Java/C# tracks.
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Java (Maven)
+target/
+
+# .NET
+bin/
+obj/
+*.user
+
+# Test projects created during Lab 3
+Gallery.Tests/

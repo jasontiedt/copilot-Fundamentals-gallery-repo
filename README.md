@@ -2,11 +2,19 @@
 
 A professional photo gallery and portfolio application built with Next.js 15, TypeScript, and Tailwind CSS. This project is designed for **demoing GitHub Copilot features** in a real-world, component-driven Next.js application. The included demos showcase how Copilot can assist with code generation, refactoring, UI building, and more.
 
+> 🎓 **Jump to the [Fundamentals Labs guide →](labs/README.md)** for the hands-on, multi-language training track.
+
 ## Demos
 
 - All demo guides and examples are in the [`demos/`](demos/) folder.
 - For more information about each demo, refer to the [README](demos/README.md) file in the `demos/` directory.
 - To get started, check out the first demo [`features-demo.md`](demos/features-demo.md) for a walkthrough of gallery features and Copilot capabilities.
+
+### 🎓 Fundamentals Labs (hands-on training)
+
+New to Copilot, or running a **Fundamentals** course? The [`labs/`](labs/README.md) folder is a short-lab track that recreates the same real-world scenario in **TypeScript, Python, Java, and C#**. Each lab is a quick, staged exercise that ends by opening a Pull Request and getting a Copilot review — and leaves you with reusable custom instructions, prompt files, skills, and agents you can take to your own projects.
+
+Start at the [Labs index](labs/README.md).
 
 ### Demo Tracks
 
@@ -67,7 +75,7 @@ Once ready, you can access the application at the forwarded port URL provided in
 1. Clone the repository:
    ```bash
    git clone https://github.com/ps-copilot-sandbox/copilot-intermediate-gallery-repo.git
-   cd gallery-repo
+   cd copilot-intermediate-gallery-repo
    ```
 2. Install dependencies:
    ```bash
@@ -86,5 +94,7 @@ src/
 ├── app/                 # Next.js 15 App Router pages
 ├── components/          # Reusable React components
 ├── lib/                 # Utility functions and helpers
-demos/                   # Demo guides and templates
+demos/                   # Demo guides (intermediate track)
+labs/                    # Fundamentals Labs (TypeScript, Python, Java, C#)
+└── starter/             # Per-language starter modules used by the labs
 ```

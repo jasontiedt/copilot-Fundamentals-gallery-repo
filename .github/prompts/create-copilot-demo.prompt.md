@@ -7,44 +7,25 @@ Please generate a new demo file for GitHub Copilot that focuses on demonstrating
 The demo file should include the following sections:
 1. **Demo Name**: A brief introduction to the demo and its objectives.
 2. **What You'll Learn**: A checklist of skills and knowledge users will gain by completing the demo.
-3. **Steps**: Detailed, step-by-step instructions for completing the demo tasks. This will iterate through various GitHub Copilot features listed in the 'what you'll learn' section.
+3. **Steps**: Detailed, step-by-step instructions for completing the demo tasks. This will iterate through various GitHub Copilot features listed in the 'what you'll learn' section. Include time estimates
 4. **Completion Checklist**: A summary of what users should have accomplished by the end of the demo.
-5. **What's Next**: Suggestions for further learning or next steps after completing the demo.
+5. **What's Next**: Suggestions for further learning or next steps after completing the demo.  Give a challenge lab here that is not meant to be completed during the training, but in their own time if they wanted to follow up.
 
 
-## Example Demo File
-Here is an example of how the demo file should be structured:
+## Structure
+Multiple labs, each with the same scenario but recreated for difference languages.  Include Python, Java, C#, and any others you think will be good to include.
 
 ```Markdown
-# NAME Demo
+# Fundamentals Labs
 
-Welcome to the GitHub Copilot NAME demo! [MORE INFO ABOUT THE EXERCISES HERE]
+## What Labs to include
+Unit Tests
+Best practices for individual Copilot usage and team copilot usage/sharing. This should set up supporting documents such as  custom instructions, prompt files, skills, agents, etc.  This should tie into the next section for them to use when performing core development.
+Core Development skills (should be the longest)
+Reviewing code changes
+Any other good scenarios or Copilot features you think will be good to include.
 
-## What You'll Learn
-By the end of this demo, you will:
-- [ ] 
-- [ ] 
-- [ ] 
 
-**Estimated Time:** X-X minutes
 
-## 🎯 Step 1: 
-
-## 📚 Step 2:
-
-## 💻 Step 3:
-
-## ✅ Completion Checklist
-
-Mark off each item as you complete it:
-
-- [ ] 
-- [ ] 
-- [ ] 
-
-## 🚀 What's Next?
-
-Congratulations! You've completed your first GitHub Copilot demo. 
-
-👉 **[Start DEMO NAME Demo](./next-demo-name.md)**
-```
+Overview:
+This repo is prebuilt content to teach a Copilot intermediate course.  I want to adjust this version to be appropriate for a Fundamentals version.  The difficulty of the current course feels appropriate for Fundamentals, so I don't want to change that.  Instead, I want more real world scenarios in shorter spurts.  So multiple stages to work through a single lab and explore different Copilot features.  Focus on IDE-centered features but also a final step to each lab to push the branch the developers have been working on to create a pull request and test Copilot reviews.  I want them to be able to finish labs and have files and artifacts that they can take to apply to their real job such as custom instructions, prompt files, skills, agents, etc.

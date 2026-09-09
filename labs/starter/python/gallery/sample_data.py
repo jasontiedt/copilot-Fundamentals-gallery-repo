@@ -1,0 +1,16 @@
+"""Sample gallery data used by the starter service."""
+from __future__ import annotations
+
+from .models import Photo
+
+SAMPLE_PHOTOS: list[Photo] = [
+    Photo("1", "Sunset Landscape", ["landscape", "sunset", "nature"], 124, 45, 1205, "John Doe", "2024-01-15"),
+    Photo("2", "Portrait Study", ["portrait", "studio", "professional"], 89, 23, 892, "Jane Smith", "2024-01-10"),
+    Photo("3", "Architecture", ["architecture", "building", "city"], 156, 67, 1543, "Mike Johnson", "2024-01-08"),
+    Photo("4", "Nature Close-up", ["macro", "nature", "flowers"], 203, 89, 2134, "Sarah Wilson", "2024-01-05"),
+    Photo("5", "Street Photography", ["street", "candid", "urban"], 91, 34, 765, "Alex Brown", "2024-01-03"),
+    Photo("6", "Wedding Moment", ["wedding", "love", "ceremony"], 267, 112, 3421, "Emma Davis", "2024-01-01"),
+    Photo("7", "Mountain Trail", ["landscape", "mountains", "hiking"], 145, 52, 1670, "Chris Lee", "2023-12-28"),
+    Photo("8", "City Lights", ["city", "night", "urban"], 178, 73, 1988, "Nina Patel", "2023-12-22"),
+    Photo("9", "Forest Path", ["nature", "forest", "green"], 132, 41, 1120, "Tom Baker", "2023-12-18"),
+]

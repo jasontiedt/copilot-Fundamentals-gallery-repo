@@ -2,6 +2,10 @@
 
 This folder contains step-by-step demo guides for learning and practicing GitHub Copilot features in the Photo Gallery & Portfolio application. Each demo builds on the previous one, helping you master Copilot’s capabilities in a real-world Next.js project.
 
+## 🎓 Fundamentals Labs
+
+Looking for the hands-on **Fundamentals Labs**? They live in the [`labs/`](../labs/README.md) folder — short, staged exercises available in **TypeScript, Python, Java, and C#**, each ending in a Pull Request reviewed by Copilot. The demos below are the original intermediate walkthroughs.
+
 ## Demo Sequence & Descriptions
 
 ### 1. Features Demo ([features-demo.md](features-demo.md))
