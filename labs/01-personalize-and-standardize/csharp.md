@@ -70,7 +70,7 @@ applyTo: "**/*.cs"
 - XML-doc every public type and member with a one-line `<summary>`.
 ```
 
-> 💡 **Shortcut:** Open Chat → gear icon → **Generate Instructions** to draft a starting point, then trim it.
+> 💡 **Shortcut:** Type `/init` in chat to generate workspace instructions, or select **Configure Chat** (⚙) → **Generate Instructions**. Trim the result to taste.
 
 **✅ Checkpoint:** Editing a `.cs` file, ask Copilot to "add a method" and confirm it uses nullable annotations, `Async` suffix, and XML docs.
 
@@ -80,14 +80,14 @@ applyTo: "**/*.cs"
 
 **Goal:** Capture a task you repeat into a one-command **prompt file**.
 
-**1. Study an example.** Open [.github/prompts/generate-new-ui.prompt.md](../../.github/prompts/generate-new-ui.prompt.md) and note the frontmatter (`mode`, `description`, `tools`).
+**1. Study an example.** Open [.github/prompts/generate-new-ui.prompt.md](../../.github/prompts/generate-new-ui.prompt.md) and note its frontmatter (`agent`, `description`, `tools`) and body. *(That example still uses the older `mode:` key — current VS Code uses `agent:`, and both work.)*
 
 **2. Create your own.** You frequently need immutable domain models with sample data. Create:
 
 `.github/prompts/gallery-model.prompt.md`
 ```markdown
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Scaffold an immutable gallery domain model with sample data (C#)'
 tools: ['codebase', 'editFiles']
 ---
@@ -153,7 +153,7 @@ Ask me for the entity name, then generate the file and a short usage example.
 
 <details><summary>💡 Stuck? Reveal a hint</summary>
 
-Reuse the frontmatter keys from `Plan.agent.md` (`name`, `description`, `tools`, optional `focusArea`). In the body: "You are a senior C# reviewer. Do not edit code. Report **Blocking / Suggestions / Nits** with file+line, checked against our instructions."
+Create it via `/agents` → **New Agent** (or **Configure Chat** ⚙ → **Agents** tab), or just add the file under `.github/agents/`. Reuse the frontmatter keys from `Plan.agent.md` (`name`, `description`, `tools`). In the body: "You are a senior C# reviewer. Do not edit code. Report **Blocking / Suggestions / Nits** with file+line, checked against our instructions."
 
 </details>
 
@@ -183,7 +183,7 @@ You just created real, reusable files. Ship them like production work.
    git push -u origin USERNAME/lab-1-personalize
    ```
 3. **Open a Pull Request** (VS Code GitHub PR extension, or the link Git prints in the terminal).
-4. **Request a Copilot review:** On the PR page, in **Reviewers**, add **Copilot**. Wait for it to comment.
+4. **Request a Copilot review:** On the PR page, under **Reviewers**, next to **Copilot**, click **Request**. It usually comments in under a minute, labeling each item **High / Medium / Low**.
 5. **Triage** Copilot's comments — resolve, reply, or apply suggestions.
 
 **🎉 Success:** A PR containing your customization pack, reviewed by Copilot.

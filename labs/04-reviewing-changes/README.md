@@ -28,7 +28,7 @@ By the end of this lab, you will:
 | 1 | Make a diff | A small Copilot-made change to review | 3 min |
 | 2 | Inline review | Right-click → Review | 3 min |
 | 3 | Whole-change review | Source Control code review | 4 min |
-| 4 | PR review | Push, open PR, add **Copilot** as reviewer | 5 min |
+| 4 | PR review | Push, open PR, request **Copilot** as reviewer | 5 min |
 | 5 | Standardize | PR template + review instructions | 3 min |
 
 ## 🎁 What you'll take home

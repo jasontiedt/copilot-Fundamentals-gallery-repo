@@ -69,7 +69,7 @@ Run `pytest` again.
 **Your goal:** Create `.github/prompts/generate-unit-tests.prompt.md` that generates pytest tests for a selected module in one command.
 
 **Done when your prompt file:**
-- [ ] Has valid frontmatter (`mode: 'agent'`, `description`, `tools`).
+- [ ] Has valid frontmatter (`agent: 'agent'`, `description`, `tools`).
 - [ ] Tells Copilot to follow your `python-testing` skill and put tests under `tests/` named `test_*.py`.
 - [ ] Requires happy-path, boundary, and each raised exception.
 - [ ] Works when you select a module and run `/generate-unit-tests`.
