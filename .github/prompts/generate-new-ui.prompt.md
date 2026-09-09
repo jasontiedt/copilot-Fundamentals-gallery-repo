@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate a new UI component following project patterns'
-tools: ['codebase', 'editFiles']
+tools: ['search/codebase', 'edit/editFiles']
 ---
 
 # Create New UI Component

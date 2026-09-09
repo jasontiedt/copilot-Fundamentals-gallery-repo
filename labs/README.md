@@ -52,11 +52,11 @@ Optional QA-focused labs that reuse the same app and starter services — great 
 
 ### 🔀 Migration & Modernization track (Lab 9)
 
-An advanced, single migration scenario — **no language picker** (source **Tcl** → target **Python**).
+An advanced, single migration scenario — **no language picker** (source **Tcl** → target **TypeScript**).
 
 | # | Lab | Time | You'll practice | Take-home artifact | Status |
 | - | --- | ---- | --------------- | ------------------ | ------ |
-| 9 | [Migrate Tcl → Python](09-tcl-to-python/README.md) | ~50 min | Legacy comprehension, a custom **migration agent**, an annotate-and-ask prompt, Plan mode, behavior-parity testing | Migration agent + `annotate-tcl.prompt.md` + ported Python | ✅ Ready |
+| 9 | [Migrate Tcl → TypeScript](09-tcl-to-typescript/README.md) | ~50 min | Legacy comprehension, a custom **migration agent**, an annotate-and-ask prompt, Plan mode, behavior-parity testing | Migration agent + `annotate-tcl.prompt.md` + ported TypeScript | ✅ Ready |
 
 ## 🌐 Pick your language
 
@@ -71,7 +71,7 @@ Every lab is offered in four languages. **Pick the one you use at work** — the
 
 > Lab 1 does not require any starter code — you'll be creating configuration and customization files that apply to whatever code you write next.
 >
-> **Lab 9 (Tcl → Python)** is a single migration scenario with no language picker; it uses [`labs/starter/tcl`](starter/tcl/README.md).
+> **Lab 9 (Tcl → TypeScript)** is a single migration scenario with no language picker; it uses [`labs/starter/tcl`](starter/tcl/README.md).
 
 ## 🔁 How every lab works
 

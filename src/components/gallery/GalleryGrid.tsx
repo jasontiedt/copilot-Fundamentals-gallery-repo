@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Heart, Download, Share2, Eye, Tag } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { filterPhotos, paginatePhotos } from '@/lib/gallery-utils';
 import { Photo, mockPhotos } from '@/lib/mock-photo-data';
+import { motion } from 'framer-motion';
+import { Download, Eye, Heart, Share2, Tag } from 'lucide-react';
+import { useState } from 'react';
 
 interface GalleryGridProps {
   limit?: number;
@@ -28,28 +29,15 @@ export function GalleryGrid({
   const [likedPhotos, setLikedPhotos] = useState<Set<string>>(new Set());
 
   // Filter photos based on selected tags and search query
-  const filteredPhotos = mockPhotos.filter(photo => {
-    // Filter by tags
-    const matchesTags = selectedTags.length === 0 || 
-      selectedTags.some(tag => photo.tags.includes(tag.toLowerCase()));
-    
-    // Filter by search query
-    const matchesSearch = searchQuery === "" ||
-      photo.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      photo.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (photo.photographer && photo.photographer.toLowerCase().includes(searchQuery.toLowerCase()));
-    
-    return matchesTags && matchesSearch;
+  const filteredPhotos = filterPhotos(mockPhotos, {
+    tags: selectedTags,
+    searchQuery: searchQuery
   });
 
   // Calculate pagination
-  const totalPhotos = filteredPhotos.length;
-  const photosPerPage = limit;
-  const totalPages = Math.ceil(totalPhotos / photosPerPage);
-  const startIndex = 0;
-  const endIndex = currentPage * photosPerPage;
-  const displayedPhotos = filteredPhotos.slice(startIndex, endIndex);
-  const hasMore = endIndex < totalPhotos;
+  const pagination = paginatePhotos(filteredPhotos, 1, currentPage * limit);
+  const displayedPhotos = pagination.items;
+  const hasMore = pagination.hasMore;
 
   const toggleLike = (photoId: string) => {
     setLikedPhotos(prev => {
