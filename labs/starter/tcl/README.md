@@ -1,6 +1,6 @@
 # Tcl Starter — Legacy `gallery_report`
 
-A small, realistic **legacy Tcl** program that reports on the photo gallery. It's the "before" artifact for [Lab 9: Migrate Tcl → Python](../../09-tcl-to-python/README.md).
+A small, realistic **legacy Tcl** program that reports on the photo gallery. It's the "before" artifact for [Lab 9: Migrate Tcl → TypeScript](../../09-tcl-to-typescript/README.md).
 
 ## Files
 
@@ -39,7 +39,7 @@ Architecture              21 pts  (1543 views)
 
 These behaviors are easy to get subtly wrong in Python — confirm intent before converting:
 
-- **`score`** uses magic weights (`likes*3 + downloads*2 + views`) and **integer division by 100** (truncates). Python must use `//`, not `/`.
+- **`score`** uses magic weights (`likes*3 + downloads*2 + views`) and **integer division by 100** (truncates). TypeScript must use `Math.trunc(x / 100)`, not `/`.
 - **`top_by`** relies on Tcl's **stable** `lsort` for tie-breaking (input order is preserved).
 - **`normalize`** collapses every run of non-alphanumerics to a single dash and trims leading/trailing dashes.
 - **`filter` vs `search`**: `filter` matches a single tag exactly (case-insensitive); `search` matches a normalized substring across title + photographer + tags.
