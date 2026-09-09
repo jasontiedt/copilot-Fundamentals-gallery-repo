@@ -32,7 +32,7 @@ Accept the change.
 ## 🎯 Stage 2: Inline review (3 min)
 
 1. **Select** the code you just added.
-2. **Right-click → Copilot → Review and Comment** (or "Review").
+2. **Right-click the selection → Copilot → Review and Comment** (the menu may read **Generate Code → Review**). Comments appear inline and in the **Comments** panel.
 3. Read the inline comments; **accept** or **discard** each.
 
 **✅ Checkpoint:** You've seen Copilot's inline feedback on your selection.
@@ -64,7 +64,7 @@ Accept the change.
    git push -u origin USERNAME/lab-4-review
    ```
 4. **Open a Pull Request.**
-5. In **Reviewers**, add **Copilot**. When it finishes, **triage** each comment — resolve, reply, or click **Apply suggestion**.
+5. Under **Reviewers**, next to **Copilot**, click **Request**. When it finishes, **triage** each comment (labeled **High / Medium / Low**) — resolve, reply, or click **Apply suggestion**.
 
 **✅ Checkpoint:** Your PR has Copilot review comments and you've actioned them.
 

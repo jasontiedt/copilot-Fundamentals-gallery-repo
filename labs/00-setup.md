@@ -55,11 +55,13 @@ git checkout -b USERNAME/lab-0-setup
 
 Open **Copilot Chat** (`Ctrl` + `Alt` + `I` on Windows/Linux, `Cmd` + `Ctrl` + `I` on Mac) and try each of these:
 
-1. **Modes** — Find the mode dropdown at the bottom of the Chat panel. You'll see:
+1. **Modes** — Use the **mode picker** at the bottom of the Chat input (in newer builds it's labeled the **agent** picker). Common built-in modes:
    - **Ask** — questions and explanations, no edits
    - **Edit** — targeted edits to files you choose
    - **Agent** — Copilot plans and edits across the workspace and runs tools
    - **Plan** — Copilot drafts a step-by-step plan before any edits
+
+   Custom agents you add (like the **Reviewer** you build in Lab 1) also appear in this picker. The exact list can vary slightly by VS Code version.
 2. **Slash commands** — type `/` and scroll the list (e.g. `/explain`, `/tests`, `/fix`, `/doc`).
 
    ```markdown

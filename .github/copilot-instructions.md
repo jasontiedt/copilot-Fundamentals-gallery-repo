@@ -90,6 +90,12 @@ src/
    "grid md:grid-cols-3 gap-6" // Responsive grid
    ```
 
+## Testing directives
+   ```md
+   always include unit tests where appropriate
+   include edge cases involving null, point of failure, and unexpected input
+   ```
+
 ## Development Workflow
 
 ### Running the Project

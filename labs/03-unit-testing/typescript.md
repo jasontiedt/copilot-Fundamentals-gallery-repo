@@ -19,18 +19,40 @@ git checkout -b USERNAME/lab-3-tests
 
 ## 🎯 Stage 1: Set up the test runner (5 min)
 
-**Goal:** Get a working `npm test`.
+**Goal:** Get a working `npm test` for pure-function unit tests. The steps below are known-good for this Next.js 15 + Tailwind v4 project — two version/config details matter, so they're spelled out.
 
-**1.** Ask Copilot Chat (Agent mode):
-```markdown
-Set up Vitest for this Next.js + TypeScript project for unit-testing pure functions (no React rendering). Install it as a dev dependency and add a "test" script that runs `vitest run`. Keep config minimal.
-```
-
-**2.** Accept the changes, then confirm:
+**1.** Install Vitest, pinned to **v2** (matches this repo's `@types/node@^20`):
 ```bash
-npm install
-npm test   # no tests yet — should report "no test files found"
+npm install -D vitest@^2
 ```
+> If you see an `ERESOLVE` peer-dependency error, append `--legacy-peer-deps`. (Bare `npm i -D vitest` may pull a newer major that wants a newer `@types/node`.)
+
+**2.** Add a `"test"` script to `package.json`:
+```json
+"scripts": {
+  "test": "vitest run"
+}
+```
+
+**3.** Create `vitest.config.ts` in the project root. The `css.postcss` override stops Vitest from loading this repo's Tailwind PostCSS config (which Vite can't parse) during pure-logic tests:
+```ts
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  css: { postcss: { plugins: [] } },
+  test: {
+    environment: 'node',
+    include: ['src/**/*.test.ts'],
+  },
+});
+```
+
+**4.** Confirm it runs:
+```bash
+npm test   # no tests yet — should report "No test files found"
+```
+
+> 💡 Prefer to let Copilot do it? Ask Agent mode to *"set up Vitest v2 with a node-environment `vitest.config.ts` that disables PostCSS, and add a `test` script"* — then verify with the steps above.
 
 **✅ Checkpoint:** `npm test` runs Vitest (even with zero tests).
 
@@ -87,7 +109,7 @@ Run `npm test` again.
 **Your goal:** Create `.github/prompts/generate-unit-tests.prompt.md` that generates Vitest tests for a selected module in one command.
 
 **Done when your prompt file:**
-- [ ] Has valid frontmatter (`mode: 'agent'`, `description`, `tools`).
+- [ ] Has valid frontmatter (`agent: 'agent'`, `description`, `tools`).
 - [ ] Tells Copilot to follow your `typescript-testing` skill and place tests as `<name>.test.ts`.
 - [ ] Requires happy-path, boundary, and one edge case per exported function.
 - [ ] Works when you select a file and run `/generate-unit-tests`.

@@ -24,9 +24,12 @@ flowchart LR
   C --> D[🧪 Test it]
   D --> E[🔍 Review<br/>changes]
   E --> F[🚀 Ship &<br/>Delegate]
+  F -.-> G[🧪 QA track<br/>TDD · E2E · Bug repro]
 ```
 
 ## 📚 Lab index
+
+### 🎯 Core track (Labs 0–5)
 
 | # | Lab | Time | You'll practice | Take-home artifact | Status |
 | - | --- | ---- | --------------- | ------------------ | ------ |
@@ -37,11 +40,29 @@ flowchart LR
 | 4 | [Reviewing Changes](04-reviewing-changes/README.md) | ~18 min | Inline review, Source Control review, commit-message gen, **Copilot PR review** | A team review-standards instructions file | ✅ Ready |
 | 5 | [Debug, Document & Delegate](05-debug-document-delegate/README.md) *(bonus)* | ~22 min | `/fix`, `/doc`, MCP issue creation, Cloud Agent | Docs + your first cloud-agent PR | ✅ Ready |
 
+### 🧪 QA & Testing track (Labs 6–8)
+
+Optional QA-focused labs that reuse the same app and starter services — great for testers, SDETs, and anyone who owns quality.
+
+| # | Lab | Time | You'll practice | Take-home artifact | Status |
+| - | --- | ---- | --------------- | ------------------ | ------ |
+| 6 | [TDD from a Work Item](06-tdd-from-workitem/README.md) | ~28 min | Red-green-refactor, Ask & Agent modes | `workitem-to-tests.prompt.md` | ✅ Ready |
+| 7 | [E2E UI Testing (Playwright + MCP)](07-e2e-playwright/README.md) | ~35 min | Playwright, **Playwright MCP**, Agent mode drives the browser | Playwright suite + `.vscode/mcp.json` | ✅ Ready |
+| 8 | [Bug Repro → Report → Delegate](08-bug-repro-report-delegate/README.md) | ~26 min | Repro tests, bug-report prompt, **coding agent** delegation | `bug-report.prompt.md` + issue template | ✅ Ready |
+
+### 🔀 Migration & Modernization track (Lab 9)
+
+An advanced, single migration scenario — **no language picker** (source **Tcl** → target **Python**).
+
+| # | Lab | Time | You'll practice | Take-home artifact | Status |
+| - | --- | ---- | --------------- | ------------------ | ------ |
+| 9 | [Migrate Tcl → Python](09-tcl-to-python/README.md) | ~50 min | Legacy comprehension, a custom **migration agent**, an annotate-and-ask prompt, Plan mode, behavior-parity testing | Migration agent + `annotate-tcl.prompt.md` + ported Python | ✅ Ready |
+
 ## 🌐 Pick your language
 
 Every lab is offered in four languages. **Pick the one you use at work** — the Copilot skills are identical, only the code differs, and the artifacts you build will be relevant to your day job.
 
-| Language | Track file (in each lab) | Starter code for Labs 2-5 |
+| Language | Track file (in each lab) | Starter code for Labs 2-8 |
 | -------- | ------------------------ | ------------------------- |
 | TypeScript / React | `typescript.md` | The real gallery app (already in this repo) |
 | Python | `python.md` | [`labs/starter/python`](starter/python/README.md) |
@@ -49,6 +70,8 @@ Every lab is offered in four languages. **Pick the one you use at work** — the
 | C# | `csharp.md` | [`labs/starter/csharp`](starter/csharp/README.md) |
 
 > Lab 1 does not require any starter code — you'll be creating configuration and customization files that apply to whatever code you write next.
+>
+> **Lab 9 (Tcl → Python)** is a single migration scenario with no language picker; it uses [`labs/starter/tcl`](starter/tcl/README.md).
 
 ## 🔁 How every lab works
 

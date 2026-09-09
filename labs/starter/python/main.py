@@ -4,6 +4,7 @@ Usage:
     cd labs/starter/python
     python main.py
 """
+
 from __future__ import annotations
 
 from gallery.service import GalleryService
@@ -22,3 +23,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

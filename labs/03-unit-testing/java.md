@@ -67,7 +67,7 @@ Run `mvn -q test` again.
 **Your goal:** Create `.github/prompts/generate-unit-tests.prompt.md` that generates JUnit 5 tests for a selected class in one command.
 
 **Done when your prompt file:**
-- [ ] Has valid frontmatter (`mode: 'agent'`, `description`, `tools`).
+- [ ] Has valid frontmatter (`agent: 'agent'`, `description`, `tools`).
 - [ ] Tells Copilot to follow your `java-testing` skill and mirror the package under `src/test/java` as `<Type>Test`.
 - [ ] Requires happy-path, boundary, and each thrown exception.
 - [ ] Works when you select a class and run `/generate-unit-tests`.
