@@ -14,7 +14,22 @@ A professional photo gallery and portfolio application built with Next.js 15, Ty
 
 New to Copilot, or running a **Fundamentals** course? The [`labs/`](labs/README.md) folder is a short-lab track that recreates the same real-world scenario in **TypeScript, Python, Java, and C#**. Each lab is a quick, staged exercise that ends by opening a Pull Request and getting a Copilot review — and leaves you with reusable custom instructions, prompt files, skills, and agents you can take to your own projects.
 
-Start at the [Labs index](labs/README.md).
+Start at the [Labs index](labs/README.md), or jump straight to a lab:
+
+| # | Lab | Time | You'll practice |
+| - | --- | ---- | --------------- |
+| 0 | [Setup](labs/00-setup.md) | ~5 min | Sign-in, modes, `/` `#` `@`, model picker |
+| 1 | [Personalize & Standardize](labs/01-personalize-and-standardize/README.md) | ~30 min | Custom instructions, prompt files, skills, agents, chat sharing |
+| 2 | [Core Development](labs/02-core-development/README.md) | ~40 min | Ask/`/explain`, `#codebase`, inline & Next Edit Suggestions, Plan & Agent modes |
+| 3 | [Unit Testing](labs/03-unit-testing/README.md) | ~22 min | `/tests`, Agent mode, `/fix`, coverage prompts |
+| 4 | [Reviewing Changes](labs/04-reviewing-changes/README.md) | ~18 min | Inline review, Source Control review, commit-message generation, Copilot PR review |
+| 5 | [Debug, Document & Delegate](labs/05-debug-document-delegate/README.md) | ~22 min | `/fix`, `/doc`, MCP issue creation, Cloud Agent |
+
+Each lab (1–5) has a track for every language — TypeScript, Python, Java, and C# — plus per-language starter code for Labs 2–5:
+
+- [`labs/starter/python`](labs/starter/python/README.md)
+- [`labs/starter/java`](labs/starter/java/README.md)
+- [`labs/starter/csharp`](labs/starter/csharp/README.md)
 
 ### Demo Tracks
 
