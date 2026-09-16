@@ -11,7 +11,7 @@ Unlike a single long walkthrough, this track is built as **short, focused labs**
 - **Ends by shipping**: you push your branch, open a Pull Request, and let **Copilot review your code**
 - Leaves you with **take-home artifacts** (custom instructions, prompt files, skills, agents) you can drop straight into your own repositories
 
-> These labs are designed for a **Fundamentals** audience. You do **not** need prior Copilot experience — just curiosity.
+> These labs are designed for a **Fundamentals** audience. You do **not** need prior Copilot experience — just curiosity. Test
 
 ## 🧭 The workflow you'll practice
 
