@@ -33,7 +33,7 @@ git checkout -b USERNAME/lab-1-personalize
 
 **2. Model picker:** In VS Code Copilot Chat, open the model dropdown and note which models are available. You'll compare two later.
 
-**3. Usage:** Check your premium request usage at [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features) so you know what a "premium request" costs.
+**3. Usage:** Check your premium request usage at [https://github.com/settings/copilot/features](https://triwest-healthcare-alliance.ghe.com/settings/copilot/features) so you know what a "premium request" costs.
 
 **✅ Checkpoint:** You have personal instructions saved and know where your usage lives.
 
