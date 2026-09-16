@@ -1,0 +1,176 @@
+name: Unit Tests
+
+# Runs the TypeScript unit test suite on demand (via the Actions tab) and on
+# every pull request. When the suite fails, a tracking issue is opened and
+# assigned to the Copilot coding agent to propose a fix.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# Cancel superseded runs for the same PR/ref to avoid duplicate remediation.
+concurrency:
+  group: unit-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    name: TypeScript unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript unit tests
+        id: unit_tests
+        run: |
+          set -o pipefail
+          npm run test:ci 2>&1 | tee test-output.log
+
+      - name: Open Copilot remediation issue on failure
+        if: failure() && steps.unit_tests.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            // --- Gather failure context -------------------------------------
+            let testLog = '';
+            try {
+              testLog = fs.readFileSync('test-output.log', 'utf8');
+            } catch {
+              testLog = 'Test output log was not captured.';
+            }
+
+            // Issue bodies are capped at 65536 characters; keep the tail.
+            const MAX_LOG = 45000;
+            const truncated = testLog.length > MAX_LOG;
+            if (truncated) {
+              testLog = testLog.slice(-MAX_LOG);
+            }
+
+            const { owner, repo } = context.repo;
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const pr = context.payload.pull_request;
+            const trigger = pr
+              ? `pull request #${pr.number} (\`${pr.head.ref}\`)`
+              : `\`${context.ref}\``;
+            const headSha = pr ? pr.head.sha : context.sha;
+            const shortSha = headSha.substring(0, 7);
+
+            // Stable marker so re-runs on the same PR/ref update one issue
+            // instead of opening a new one on every pushed commit.
+            const dedupKey = pr ? `pr-${pr.number}` : `ref-${context.ref}`;
+            const marker = `<!-- unit-test-remediation:${dedupKey} -->`;
+
+            const body = [
+              marker,
+              `The TypeScript unit test suite failed for ${trigger}.`,
+              '',
+              '| | |',
+              '|---|---|',
+              `| Trigger | ${trigger} |`,
+              `| Commit | \`${shortSha}\` |`,
+              `| Workflow run | ${runUrl} |`,
+              '',
+              '@copilot please investigate the failing unit tests and open a pull request that fixes the root cause in the application code under `src/`. Do not delete, skip, or weaken assertions just to make the suite pass. Run `npm run test:ci` to confirm the suite is green before requesting review.',
+              '',
+              truncated ? `> Note: the log below is truncated to the last ${MAX_LOG} characters.` : '',
+              '',
+              '<details><summary>Test output</summary>',
+              '',
+              '```text',
+              testLog,
+              '```',
+              '',
+              '</details>',
+            ].join('\n');
+
+            // --- Reuse an existing open issue when possible ------------------
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner,
+              repo,
+              state: 'open',
+              labels: 'automated-test-failure',
+              per_page: 100,
+            });
+            const existing = openIssues.find((i) => i.body?.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body: `The unit test suite is still failing at \`${shortSha}\`. Latest run: ${runUrl}`,
+              });
+              core.info(`Updated existing issue #${existing.number}: ${existing.html_url}`);
+              return;
+            }
+
+            // --- Create the tracking issue ----------------------------------
+            const { data: issue } = await github.rest.issues.create({
+              owner,
+              repo,
+              title: `Unit test failures for ${pr ? `PR #${pr.number}` : context.ref} (${shortSha})`,
+              labels: ['automated-test-failure'],
+              body,
+            });
+            core.info(`Opened issue #${issue.number}: ${issue.html_url}`);
+
+            // --- Assign the Copilot coding agent ----------------------------
+            // The agent is exposed as a suggested actor that can be assigned.
+            const { repository } = await github.graphql(
+              `query ($owner: String!, $name: String!) {
+                 repository(owner: $owner, name: $name) {
+                   suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+                     nodes {
+                       login
+                       __typename
+                       ... on Bot { id }
+                       ... on User { id }
+                     }
+                   }
+                 }
+               }`,
+              { owner: context.repo.owner, name: context.repo.repo }
+            );
+
+            const agent = repository.suggestedActors.nodes.find(
+              (node) => node.login === 'copilot-swe-agent'
+            );
+
+            if (!agent) {
+              core.warning(
+                `The Copilot coding agent is not available for this repository, so ` +
+                  `issue #${issue.number} was created but not assigned. Enable the ` +
+                  `Copilot coding agent (Settings -> Copilot -> Coding agent) to allow ` +
+                  `automatic remediation.`
+              );
+              return;
+            }
+
+            await github.graphql(
+              `mutation ($assignableId: ID!, $actorIds: [ID!]!) {
+                 replaceActorsForAssignable(input: { assignableId: $assignableId, actorIds: $actorIds }) {
+                   assignable {
+                     ... on Issue { number }
+                   }
+                 }
+               }`,
+              { assignableId: issue.node_id, actorIds: [agent.id] }
+            );
+
+            core.info(`Assigned the Copilot coding agent to issue #${issue.number}.`);
