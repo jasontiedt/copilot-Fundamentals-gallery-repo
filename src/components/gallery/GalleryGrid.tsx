@@ -5,6 +5,7 @@ import { Photo, mockPhotos } from '@/lib/mock-photo-data';
 import { motion } from 'framer-motion';
 import { Download, Eye, Heart, Share2, Tag } from 'lucide-react';
 import { useState } from 'react';
+import { PhotoComments } from './PhotoComments';
 
 interface GalleryGridProps {
   limit?: number;
@@ -215,6 +216,7 @@ export function GalleryGrid({
               <p className="text-slate-600 dark:text-slate-400">
                 Photo details and larger view would be implemented here.
               </p>
+              <PhotoComments photoId={selectedPhoto.id} />
             </div>
           </div>
         </div>
