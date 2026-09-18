@@ -25,6 +25,7 @@ flowchart LR
   D --> E[🔍 Review<br/>changes]
   E --> F[🚀 Ship &<br/>Delegate]
   F -.-> G[🧪 QA track<br/>TDD · E2E · Bug repro]
+  E -.-> H[🛡️ Local Review<br/>Agent + Skills]
 ```
 
 ## 📚 Lab index
@@ -58,12 +59,20 @@ An advanced, single migration scenario — **no language picker** (source **Tcl*
 | - | --- | ---- | --------------- | ------------------ | ------ |
 | 9 | [Migrate Tcl → TypeScript](09-tcl-to-typescript/README.md) | ~50 min | Legacy comprehension, a custom **migration agent**, an annotate-and-ask prompt, Plan mode, behavior-parity testing | Migration agent + `annotate-tcl.prompt.md` + ported TypeScript | ✅ Ready |
 
+### 🛡️ Quality Gate track (Lab 10)
+
+A focused add-on lab — package your team's review knowledge into skills and a dedicated agent that gates every push, in any language.
+
+| # | Lab | Time | You'll practice | Take-home artifact | Status |
+| - | --- | ---- | --------------- | ------------------ | ------ |
+| 10 | [Local Code Review Agent](10-local-code-review/README.md) | ~28 min | Skill authoring, a read-only review agent, running a gate before every push | `code-review-security` + `code-review-coverage` skills + a `Local Reviewer` agent | ✅ Ready |
+
 ## 🌐 Pick your language
 
 Every lab is offered in four languages. **Pick the one you use at work** — the Copilot skills are identical, only the code differs, and the artifacts you build will be relevant to your day job.
 
-| Language | Track file (in each lab) | Starter code for Labs 2-8 |
-| -------- | ------------------------ | ------------------------- |
+| Language | Track file (in each lab) | Starter code for Labs 2-8, 10 |
+| -------- | ------------------------ | ------------------------------ |
 | TypeScript / React | `typescript.md` | The real gallery app (already in this repo) |
 | Python | `python.md` | [`labs/starter/python`](starter/python/README.md) |
 | Java | `java.md` | [`labs/starter/java`](starter/java/README.md) |

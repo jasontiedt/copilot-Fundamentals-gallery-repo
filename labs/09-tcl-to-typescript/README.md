@@ -235,5 +235,7 @@ Or ask Copilot to "write a Vitest test that runs both `report` commands via `chi
 
 You've completed the migration lab! Your **migration agent** and **annotate prompt** are portable — drop them into any repo with legacy scripts.
 
+Continue to **[Lab 10: Local Code Review Agent](../10-local-code-review/README.md)** to build a pre-push quality gate of your own.
+
 ### 🌟 Take-home challenge (do this on your own time)
 Point the same agent + annotate prompt at a **real legacy script** from your world (Tcl, Perl, Bash, or VBScript) and port one module to your target language — proving parity with a golden-master test. Then generalize the agent's rules to your language pair.
