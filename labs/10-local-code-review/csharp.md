@@ -166,7 +166,7 @@ Review my unstaged changes again and give me a verdict.
 
 ## 🏁 What's Next?
 
-You've built a personal pre-push quality gate. If you haven't yet, explore the **[QA & Testing track](../06-tdd-from-workitem/README.md)** or the **[Migration lab](../09-tcl-to-typescript/README.md)**.
+You've built a personal pre-push quality gate. If you haven't yet, explore the **[QA & Testing track](../06-tdd-from-workitem/README.md)**, the **[QA Signoff lab](../11-qa-ux-validation/README.md)** (validate the deployed UX against work items), or the **[Migration lab](../09-tcl-to-typescript/README.md)**.
 
 ### 🌟 Take-home challenge (do this on your own time)
 - Add a third skill (performance, accessibility, or your team's top recurring PR comment) and wire it into your **Local Reviewer**.

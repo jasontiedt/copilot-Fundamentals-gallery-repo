@@ -1,0 +1,1 @@
+applyto: [*.py]

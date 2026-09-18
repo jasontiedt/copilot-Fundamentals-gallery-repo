@@ -26,6 +26,8 @@ flowchart LR
   E --> F[🚀 Ship &<br/>Delegate]
   F -.-> G[🧪 QA track<br/>TDD · E2E · Bug repro]
   E -.-> H[🛡️ Local Review<br/>Agent + Skills]
+  G -.-> I[🧾 QA Signoff<br/>Validate deployed UX]
+  I -.-> J[🤖 Katalon AI<br/>QA in Katalon Studio]
 ```
 
 ## 📚 Lab index
@@ -67,6 +69,15 @@ A focused add-on lab — package your team's review knowledge into skills and a 
 | - | --- | ---- | --------------- | ------------------ | ------ |
 | 10 | [Local Code Review Agent](10-local-code-review/README.md) | ~28 min | Skill authoring, a read-only review agent, running a gate before every push | `code-review-security` + `code-review-coverage` skills + a `Local Reviewer` agent | ✅ Ready |
 
+### 🧾 QA Signoff track (Labs 11–12)
+
+Black-box QA labs for testers who validate the **deployed** experience against Jira work items before Production signoff — **no language picker**, no source-code changes. Lab 11 uses GitHub Copilot + Playwright MCP in VS Code; Lab 12 runs the same workflow inside Katalon Studio.
+
+| # | Lab | Time | You'll practice | Take-home artifact | Status |
+| - | --- | ---- | --------------- | ------------------ | ------ |
+| 11 | [QA UX Validation Against Work Items](11-qa-ux-validation/README.md) | ~60 min | Reading acceptance criteria, **Copilot + Playwright MCP** driving a deployed app, filing defects, a Go/No-Go signoff | A QA validation report + bug-report templates | ✅ Ready |
+| 12 | [QA UX Validation in Katalon Studio](12-katalon-ai-ux-validation/README.md) | ~60 min | The **Katalon AI Assistant** (Copilot-style): work-item → test cases, inline code gen, AI self-healing, Bug Reporter, Go/No-Go signoff | Katalon test cases + manual-test-case template | ✅ Ready |
+
 ## 🌐 Pick your language
 
 Every lab is offered in four languages. **Pick the one you use at work** — the Copilot skills are identical, only the code differs, and the artifacts you build will be relevant to your day job.
@@ -81,6 +92,8 @@ Every lab is offered in four languages. **Pick the one you use at work** — the
 > Lab 1 does not require any starter code — you'll be creating configuration and customization files that apply to whatever code you write next.
 >
 > **Lab 9 (Tcl → TypeScript)** is a single migration scenario with no language picker; it uses [`labs/starter/tcl`](starter/tcl/README.md).
+>
+> **Lab 11 (QA UX Validation)** has no language picker either — QA validates the **deployed** app as a black box, so nothing depends on the implementation language. **Lab 12 (Katalon Studio)** is likewise black-box, using Katalon's built-in AI Assistant instead of VS Code.
 
 ## 🔁 How every lab works
 
